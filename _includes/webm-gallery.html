@@ -1,0 +1,15 @@
+<ul class="webm-gallery">
+    {% for file in site.static_files %}
+        {% if file.path contains include.folder %}
+            {% if file.extname == '.webm' %}
+            {% assign filenameparts = file.path | split: "/" %}
+            {% assign filename = filenameparts | last | replace: file.extname,"" %}
+            <li>
+                <video loop muted autoplay>
+                    <source src="{{ file.path | relative_url }}" type="video/webm">
+                </video>
+            </li>
+            {% endif %}
+        {% endif %}
+    {% endfor %}
+</ul>
