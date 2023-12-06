@@ -1,9 +1,7 @@
 <h1>Test</h1>
 
 {% for folder in site.data.folders %}
-  <h2>{{ folder.name }}</h2>
   {% for image in site.static_files %}
-    <h3>{{ image.path }}</h3>
     {% if image.extname contains 'webm' and image.path contains folder.name %}
       <video loop muted autoplay>
         <source src="{{ image.path }}" type="video/webm">
