@@ -6,3 +6,13 @@
 .main-content {
   max-width: 100% !important;
 }
+
+.webm-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+video {
+  margin: 1em;
+}
