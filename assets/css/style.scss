@@ -20,3 +20,7 @@ video {
 video:not([src]):not([srcset]) {
   visibility: hidden;
 }
+
+.hidden {
+  display: none;
+}
