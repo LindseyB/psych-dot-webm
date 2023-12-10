@@ -2,8 +2,8 @@
     {% for file in site.static_files %}
         {% if file.path contains include.folder %}
             {% if file.extname == '.webm' %}
-                <video loop muted autoplay class="{{ include.folder }}">
-                    <source src="{{ file.path | relative_url }}" type="video/webm">
+                <video loop muted autoplay class="{{ include.folder }} lazy" data-src="{{ file.path | relative_url }">
+                    <source data-src="{{ file.path | relative_url }}" type="video/webm">
                 </video>
             {% endif %}
         {% endif %}
