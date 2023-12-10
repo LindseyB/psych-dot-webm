@@ -16,3 +16,7 @@
 video {
   margin: 1em;
 }
+
+video:not([src]):not([srcset]) {
+  visibility: hidden;
+}
