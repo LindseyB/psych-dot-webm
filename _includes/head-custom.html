@@ -11,7 +11,10 @@
     filter.addEventListener('change', (event) => {
         if(window.currentClass !== ""){
             const filter = event.target.value;
-            const filters = filter.split(" ");
+            var filters = filter.split(" ");
+            filters = filters.map(function(element){
+              return "\b" + filter + "\b";
+            });
             const regex = new RegExp(filters.join("|"), "i")
             const items = document.getElementsByClassName("hidden");
             
