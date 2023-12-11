@@ -14,8 +14,11 @@
             const filters = filter.split(" ");
             const regex = new RegExp(filters.join("|"), "i")
             const items = document.getElementsByClassName("hidden");
+            
             for(const item of items){
-                if(regex.test(item.dataset["src"].split("/").pop())){
+                var src = item.getAttribute('src'); 
+                if(!src){ src = item.dataset["src"] }
+                if(regex.test(src.split("/").pop())){
                     item.style.display = "inline";
                 } else {
                     item.style.display = "none";
