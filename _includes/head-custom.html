@@ -3,6 +3,30 @@
   var lazyLoadInstance = new LazyLoad({
    elements_selector: ".lazy"
   });
-
   
+  window.onload = function() {
+    const filter = document.getElementById("filter");
+
+    filter.addEventListener('change', (event) => {
+        if(window.currentClass !== ""){
+            const filter = event.target.value;
+            const filters = filter.split(" ");
+            const regex = new RegExp(filters.join("|"), "i")
+            const items = document.getElementsByClassName("hidden");
+            for(const item of items){
+                if(regex.test(item.src.split("/").pop())){
+                    item.style.display = "inline";
+                } else {
+                    item.style.display = "none";
+                }
+            }
+
+          lazyLoadInstance.update();
+        }
+    });
+
+    filter.addEventListener('focusin', (event) => {
+        event.target.value = "";
+    })
+  }
 </script>
